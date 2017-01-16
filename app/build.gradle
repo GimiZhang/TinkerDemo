@@ -33,9 +33,9 @@ android {
         release {
             try {
                 storeFile file("./keystore/release.keystore")
-                storePassword "testres"
-                keyAlias "testres"
-                keyPassword "testres"
+                storePassword "releaseapp"
+                keyAlias "releaseapp"
+                keyPassword "releaseapp"
             } catch (ex) {
                 throw new InvalidUserDataException(ex.toString())
             }
@@ -43,6 +43,9 @@ android {
 
         debug {
             storeFile file("./keystore/debug.keystore")
+            storePassword "testapp"
+            keyAlias "testapp"
+            keyPassword "testapp"
         }
     }
 
@@ -102,11 +105,11 @@ ext {
 
     //for normal build
     //old apk file to build patch apk
-    tinkerOldApkPath = "${bakPath}/app-debug-0116-11-12-35.apk"
+    tinkerOldApkPath = "${bakPath}/app-release-0116-13-34-31.apk"
     //proguard mapping file to build patch apk
-    tinkerApplyMappingPath = "${bakPath}/app-debug-1018-17-32-47-mapping.txt"
+    tinkerApplyMappingPath = "${bakPath}/app-release-0116-13-34-31-mapping.txt"
     //resource R.txt to build patch apk, must input if there is resource changed
-    tinkerApplyResourcePath = "${bakPath}/app-debug-0116-11-12-35-R.txt"
+    tinkerApplyResourcePath = "${bakPath}/app-release-0116-13-34-31-R.txt"
 
     //only use for build all flavor, if not, just ignore this field
     tinkerBuildFlavorDirectory = "${bakPath}/app-1018-17-32-47"
