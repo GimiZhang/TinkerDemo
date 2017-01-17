@@ -20,8 +20,6 @@ import android.annotation.TargetApi;
 import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
 import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.widget.Toast;
@@ -39,16 +37,15 @@ import com.tinker.demo.tinkerdemo.service.SampleResultService;
 
 
 @SuppressWarnings("unused")
-@DefaultLifeCycle(application = "com.tinker.demo.tinkerdemo.AMSKY",
-                  flags = ShareConstants.TINKER_ENABLE_ALL,
-                  loadVerifyFlag = false)
+@DefaultLifeCycle(application = "com.tinker.demo.tinkerdemo.app.SampleApplication",
+        flags = ShareConstants.TINKER_ENABLE_ALL,
+        loadVerifyFlag = false)
 public class SampleApplicationLike extends DefaultApplicationLike {
     private static final String TAG = "Tinker.SampleApplicationLike";
 
     public SampleApplicationLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag,
-                                 long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent,
-                                 Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) {
-        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);
+                                 long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent) {
+        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent);
     }
 
     /**
@@ -68,7 +65,7 @@ public class SampleApplicationLike extends DefaultApplicationLike {
         Tinker tinker = Tinker.with(getApplication());
 
         Toast.makeText(
-        getApplication(),"没鸟用，就是Toast提示而已", Toast.LENGTH_SHORT).show();
+        getApplication(),"加载完成", Toast.LENGTH_SHORT).show();
     }
 
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)

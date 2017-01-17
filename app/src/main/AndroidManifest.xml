@@ -10,7 +10,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name=".AMSKY"
+        android:name=".app.SampleApplication"
         android:theme="@style/AppTheme">
 
         <service
